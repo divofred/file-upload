@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Upload</h1>
+    <div class="images"></div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="photo" id="file"/>
+      <input type="submit" value="Upload" />
+    </form>
+    <script>
+      const hello = JSON.parse('<%- JSON.stringify(data) %>');
+      const div = document.querySelector(".images");
+      hello.forEach((element) => {
+        let image = `<img src="${element}" alt="img" width="200px" height="140px"/>`;
+        div.innerHTML += image;
+      });
+    </script>
+  </body>
+</html>
