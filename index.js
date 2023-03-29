@@ -7,7 +7,7 @@ const app = express();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/files");
+    cb(null, "public/Files");
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
   res.redirect('/upload')
 });
 app.post('/upload', upload.single('photo'), (req,res)=>{
-  fs.readdir("public/files", function (err, data) {
+  fs.readdir("public/Files", function (err, data) {
     if (err) {
       console.log(err);
       return;
@@ -34,7 +34,7 @@ app.post('/upload', upload.single('photo'), (req,res)=>{
   });
 })
 app.get('/upload', (req,res)=>{
-  fs.readdir("public/files", function (err, data) {
+  fs.readdir("public/Files", function (err, data) {
     if (err) {
       console.log(err);
       return;
