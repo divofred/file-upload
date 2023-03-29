@@ -18,7 +18,7 @@
       const hello = JSON.parse('<%- JSON.stringify(data) %>');
       const div = document.querySelector(".images");
       hello.forEach((element) => {
-        let image = `<img src="${element}" alt="img" width="200px" height="140px"/>`;
+        let image = `<img src="${element}" alt="${element}" width="200px" height="140px"/>`;
         div.innerHTML += image;
       });
     </script>
